@@ -55,12 +55,12 @@ def add_entry(name, text):
     except:
         print("ERROR! Could not write entries to file.")
         
-def delete_entry(id):
+def delete_entry(post_id):
     global entries
-    for entry in entries:
+    for each_entry in entries:
         try:
-            if entry['id'] == id:
-                entries.remove(entry)
+            if each_entry['id'] == post_id:
+                entries.remove(each_entry)
                 break
         except:
             pass
