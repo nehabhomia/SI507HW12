@@ -34,8 +34,8 @@ def admin():
 
 @app.route("/delete", methods = ["POST"])
 def delete():
-    id = request.form['id']
-    model.delete_entry(id)
+    post_id = request.form['id']
+    model.delete_entry(post_id)
     return redirect("/admin")
     
 if __name__=="__main__":
