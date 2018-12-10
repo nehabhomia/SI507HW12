@@ -14,7 +14,6 @@ GUESTBOOK_ENTRIES_FILE = "entries.json"
 entries = []
 next_id = 0
 counter = -1
-admin_entries = []
 
 def init():
     global entries, next_id, counter
@@ -36,9 +35,7 @@ def add_entry(name, text):
     now = datetime.now()
     next_id = counter + 1
     time_string = now.strftime("%b %d, %Y %-I:%M %p")
-    # if you have an error using this format, just use
-    # time_string = str(now)
-    entry = {"author": name, "text": text, "timestamp": time_string}
+    entry = {"author": name, "text": text, "timestamp": time_string, "post_id": str(next_id)}
     counter = counter + 1
     entries.insert(0, entry) ## add to front of list
     
