@@ -27,6 +27,10 @@ def postentry():
     message = request.form["message"]
     model.add_entry(name, message)
     return redirect("/")
+
+@app.route("/admin")
+def admin():
+    return render_template("admin.html", entries = model.get_entries())
     
 if __name__=="__main__":
     model.init()
