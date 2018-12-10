@@ -31,6 +31,12 @@ def postentry():
 @app.route("/admin")
 def admin():
     return render_template("admin.html", entries = model.get_entries())
+
+@app.route("/delete", methods = ["POST"])
+def delete():
+    id = request.form['id']
+    model.delete_entry(id)
+    return redirect("/admin")
     
 if __name__=="__main__":
     model.init()
